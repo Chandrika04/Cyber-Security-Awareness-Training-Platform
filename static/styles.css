@@ -1,0 +1,66 @@
+/* styles_welcome.css */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://media.istockphoto.com/id/1412282189/photo/lock-network-technology-concept.jpg?s=612x612&w=0&k=20&c=hripuxLs9pS_7Ln6YWQR-Ow2_-BU5RdQ4vOY8s1q1iQ='); /* Replace 'your-image-url.jpg' with the URL of your image */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff38;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+.login {
+    margin-top: 20px;
+}
+
+form {
+    text-align: center;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+button {
+    display: block;
+    width: calc(100% - 22px); /* Adjusted width */
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color:#1a1d67;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #06083e;
+}
+
+p {
+    text-align: center;
+    color: black;
+}
+
+a {
+    color: rgb(30, 10, 73);
+}
+
+a:hover {
+    text-decoration: underline;
+}

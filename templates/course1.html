@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course 1: Introduction to Cybersecurity</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='course_styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Course 1: Introduction to Cybersecurity</h1>
+        <div class="video-section">
+            <video controls width="100%" height="auto">
+                <source src="{{ url_for('static', filename='course_1.mp4') }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="course-content">
+            <h2>What is Cybersecurity?</h2>
+            <p>
+                Cybersecurity is the practice of protecting computer systems, networks, programs, devices, and data from unauthorized access, use, disclosure, disruption, modification, or destruction. It's a vast field encompassing technologies, processes, and practices to ensure the confidentiality, integrity, and availability (CIA triad) of information.
+            </p>
+            <h2>Why is Cybersecurity Important?</h2>
+            <p>
+                Our world relies heavily on digital information and interconnected systems. A cyberattack can disrupt critical infrastructure, steal sensitive data, or cause financial losses. Here's why cybersecurity is crucial:
+            </p>
+            <ul>
+                <li>Protecting Personal Information: Cyberattacks can steal personal data like financial information, medical records, or identities.</li>
+                <li>Safeguarding Businesses: Businesses can suffer financial losses, reputational damage, and legal consequences due to data breaches.</li>
+                <li>Securing Critical Infrastructure: Cyberattacks can disrupt power grids, transportation systems, and other essential services.</li>
+                <li>Maintaining National Security: Cyber threats can target government agencies and national security infrastructure.</li>
+            </ul>
+            <h2>Common Cybersecurity Threats:</h2>
+            <ul>
+                <li>Malware: Malicious software like viruses, worms, ransomware, and Trojan horses can infect devices and steal data or disrupt operations.</li>
+                <li>Phishing: Deceptive emails or messages attempt to trick users into revealing sensitive information or clicking malicious links.</li>
+                <li>Social Engineering: Attackers manipulate people to gain access to systems or information through psychological tricks.</li>
+                <li>Denial-of-Service (DoS) Attacks: These attacks flood websites or servers with traffic, making them unavailable to legitimate users.</li>
+                <li>Zero-Day Attacks: These exploit previously unknown vulnerabilities in software, making them difficult to defend against.</li>
+            </ul>
+            <h2>Basic Cybersecurity Practices:</h2>
+            <p>
+                Here are some fundamental practices to enhance your cybersecurity posture:
+            </p>
+            <ul>
+                <li>Use Strong Passwords: Create complex and unique passwords for different accounts, and consider using a password manager.</li>
+                <li>Enable Two-Factor Authentication (2FA): Add an extra layer of security by requiring a code from your phone or email in addition to your password when logging in.</li>
+                <li>Be Cautious with Phishing Attempts: Don't click on suspicious links or attachments in emails or messages. Verify the sender's legitimacy before responding.</li>
+                <li>Keep Software Updated: Software updates often include security patches, so install them promptly.</li>
+                <li>Beware of Public Wi-Fi: Avoid accessing sensitive information on unsecured public Wi-Fi networks. Consider using a VPN for added protection.</li>
+                <li>Back Up Your Data: Regularly back up your important data to a secure location in case of a cyberattack or device failure.</li>
+            </ul>
+            <p>
+                By understanding the basics of cybersecurity and implementing these practices, you can significantly reduce your risk of falling victim to cyberattacks. Remember, cybersecurity is an ongoing process, so it's important to stay informed about evolving threats and update your security measures accordingly.
+            </p>
+            <a href="{{ url_for('phishing_scenario') }}" class="enroll-btn">Phishing Scenario</a> <!-- New button -->
+            <a href="{{ url_for('quiz1') }}" class="enroll-btn">Take Quiz</a>
+        </div>
+    </div>
+</body>
+</html>

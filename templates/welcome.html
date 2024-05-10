@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Cyber Security Awareness Training Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+<body>
+    <div class="container">
+        <h1>Welcome to Cyber Security Awareness Training Platform</h1>
+        <div class="login">
+            <form action="{{ url_for('login') }}" method="POST">
+                <input type="text" name="username" placeholder="Username" required>
+                <!-- Password input field with eye icon toggle -->
+                <div class="password-container">
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <p><strong>Don't have an account?</strong> <a href="{{ url_for('register') }}"><strong>Register here</strong></a></p>
+        </div>
+    </div>
+
+    </body>
+</html>

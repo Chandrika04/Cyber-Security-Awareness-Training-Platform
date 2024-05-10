@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Training Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_training_platform.css') }}">
+</head>
+<body>
+    <video id="video-background" autoplay loop muted>
+        <source src="{{ url_for('static', filename='nowD.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="container">
+        <h1>Cyber Security Training Platform</h1>
+        <div class="courses">
+            <div class="course">
+                <img src="{{ url_for('static', filename='c1.jpg') }}" alt="Course Preview">
+                <div class="content">
+                <h2>Course 1: Introduction to Cybersecurity</h2>
+                <p>This course provides an introduction to the fundamentals of cybersecurity, covering topics such as security threats, encryption, and network security.</p>
+                {% if course_scores.course1 >= 3 %}
+                    <a href="{{ url_for('course1') }}" class="completed-btn">Completed</a>
+                {% elif enrollment.course1 > 0 %}
+                    <a href="{{ url_for('course1') }}" class="continue-btn">Continue</a>
+                {% else %}
+                    <a href="{{ url_for('enroll', course='course1') }}" class="enroll-btn">Enroll</a>
+                {% endif %}
+            </div>
+            </div>
+
+            <div class="course">
+                <img src="{{ url_for('static', filename='c2.jpg') }}" alt="Course Preview">
+                <div class="content">
+                <h2>Course 2: Ethical Hacking</h2>
+                <p>Learn the techniques and tools used by ethical hackers to identify and fix vulnerabilities in computer systems and networks.</p>
+                {% if course_scores.course2 >= 2 %}
+                    <a href="{{ url_for('course2') }}" class="completed-btn">Completed</a>
+                {% elif enrollment.course2 > 0 %}
+                    <a href="{{ url_for('course2') }}" class="continue-btn">Continue</a>
+                {% else %}
+                    <a href="{{ url_for('enroll', course='course2') }}" class="enroll-btn">Enroll</a>
+                {% endif %}
+                </div>
+            </div>
+            <div class="course">
+                <img src="{{ url_for('static', filename='c3.jpg') }}" alt="Course Preview">
+                <div class="content">
+                <h2>Course 3: Cybersecurity Best Practices</h2>
+                <p>Explore best practices for securing data, applications, and networks, including risk management and incident response.</p>
+                {% if course_scores.course3 >= 4 %}
+                    <a href="{{ url_for('course3') }}" class="completed-btn">Completed</a>
+                {% elif enrollment.course3 > 0 %}
+                    <a href="{{ url_for('course3') }}" class="continue-btn">Continue</a>
+                {% else %}
+                    <a href="{{ url_for('enroll', course='course3') }}" class="enroll-btn">Enroll</a>
+                {% endif %}
+                </div>
+            </div>
+            <!-- Add more courses as needed -->
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Score</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='course_styles.css') }}">
+</head>
+<body>
+    <div id="score-container">
+        {% if quiz_id == 1 %}
+            {% if score >= 3 %}
+                <h1>Your Score: {{ score }} out of 5</h1>
+                <a href="{{ url_for('certificate1') }}" class="button">View Certificate</a>
+            {% else %}
+                <h1>Your Score: {{ score }} out of 5</h1>
+                <p class="warning">Score is not sufficient for certificate.</p>
+            {% endif %}
+        {% elif quiz_id == 2 %}
+            {% if score >= 2 %}
+                <h1>Your Score: {{ score }} out of 4</h1>
+                <a href="{{ url_for('certificate2') }}" class="button">View Certificate</a>
+            {% else %}
+                <h1>Your Score: {{ score }} out of 4</h1>
+                <p class="warning">Score is not sufficient for certificate.</p>
+            {% endif %}
+        {% elif quiz_id == 3 %}
+            {% if score >= 2 %}
+                <h1>Your Score: {{ score }} out of 8</h1>
+                <a href="{{ url_for('certificate3') }}" class="button">View Certificate</a>
+            {% else %}
+                <h1>Your Score: {{ score }} out of 8</h1>
+                <p class="warning">Score is not sufficient for certificate.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            text-align: justify;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .subsection-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .video-section {
+            margin: 20px 50px;
+            background-color: black; /* Add a black background color to the video container */
+            padding: 2px;
+        }
+        
+        .video-section video {
+            width: 100%; /* Make the video player fill the width of its container */
+            height: auto; /* Maintain the aspect ratio of the video */
+            display: block; /* Ensure the video player behaves like a block-level element */
+            margin: 0 auto; /* Center the video horizontally within its container */
+        }
+        
+        
+        
+   

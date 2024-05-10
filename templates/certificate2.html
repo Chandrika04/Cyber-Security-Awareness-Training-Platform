@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate of Completion</title>
+  <style>
+    /* styles.css */
+   
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: #fff; /* White text */
+      margin: 0; /* Remove default margin */
+      display: flex; /* Use flexbox */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      min-height: 100vh; /* Set minimum height of viewport */
+    }
+    #video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+   }
+    .certificate {
+      border: 2px solid #f3d250; /* Golden border */
+      border-radius: 15px;
+      padding: 30px;
+      width: 70%; /* Adjust width for better responsiveness / / Remove fixed max-width */
+      background-color: rgba(16, 46, 74, 0.8); /* Dark blue background with some transparency */
+      position: relative; /* Setting certificate to relative for absolute positioning */
+      font-size: calc(1em + 0.3vw); /* Adjust font size based on viewport width */
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      margin-top: 0;
+    }
+
+    p {
+      font-size: 1em;
+      margin-bottom: 15px;
+    }
+
+    strong {
+      color: #f3d250; /* Golden text */
+    }
+
+
+  </style>
+</head>
+<body>
+  <video id="video-background" autoplay loop muted>
+    <source src="{{ url_for('static', filename='confetti.mp4') }}" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+  <div class="certificate">
+    <h1>Certificate of Completion</h1>
+    <h2>Introduction to Cyber Security Platform</h2>
+    <p>This certificate is awarded to</p>
+    <p><strong>{{ current_user.username }}</strong></p>
+    <p>in recognition of successful completion of the Ethical Hacking course.</p>
+    <p>Date: <span id="completion-date">[Date of Completion]</span></p>
+    <p>SRM UNIVERSITY, AP</p>
+  </div>
+  <script>
+    // Get current date and format it as desired (e.g., "MM/DD/YYYY")
+    var currentDate = new Date();
+    var formattedDate = currentDate.toLocaleDateString('en-GB');
+
+    // Update the completion date span with the formatted date
+    document.getElementById("completion-date").textContent = formattedDate;
+  </script>
+</body>
+</html>

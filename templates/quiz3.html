@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='quiz_styles.css') }}">
+</head>
+<body>
+    <div id="quiz">
+        <h1>Cybersecurity Quiz</h1>
+        <form id="quizForm" action="/submit_quiz" method="post">
+            <input type="hidden" name="quiz_id" value="3"> 
+            <div id="questionsContainer"></div>
+            <button type="submit">Submit</button>
+            <div id="scoreContainer" class="score"></div>
+        </form>
+    </div>
+
+    <script>
+        var questions = [
+            {
+                question: "What is the primary goal of Ethical Hacking?",
+                choices: ["To cause harm to computer systems", "To identify and fix vulnerabilities", "To steal sensitive information"],
+                correctAnswer: 1
+            },
+            {
+                question: "What is the first phase of the Ethical Hacking process?",
+                choices: ["Scanning", "Reconnaissance", "Enumeration"],
+                correctAnswer: 1
+            },
+            {
+                question: "What is the purpose of Multi-Factor Authentication (MFA)?",
+                choices: ["To simplify the login process", "To add an extra layer of security", "To reduce the need for passwords"],
+                correctAnswer: 1
+            },
+            {
+                question: "What type of encryption uses a single key for both encryption and decryption?",
+                choices: ["Symmetric Encryption", "Asymmetric Encryption", "Hashing"],
+                correctAnswer: 0
+            },
+            {
+                question: "What is the main benefit of network segmentation?",
+                choices: ["To increase network speed", "To limit the impact of a security breach", "To connect multiple networks"],
+                correctAnswer: 1
+            },
+            {
+                question: "Which of the following is an example of a social engineering tactic?",
+                choices: ["Firewall Configuration", "Buffer Overflow", "Phishing"],
+                correctAnswer: 2
+            },
+            {
+                question: "What is the primary purpose of penetration testing?",
+                choices: ["To install security software", "To identify and exploit weaknesses", "To encrypt data"],
+                correctAnswer: 1
+            },
+            {
+                question: "What is the importance of keeping software updated?",
+                choices: ["To save disk space", "To prevent security vulnerabilities", "To improve network speed"],
+                correctAnswer: 1
+            }
+        ];
+        function loadQuestions() {
+            var questionsHtml = "";
+            for (var i = 0; i < questions.length; i++) {
+                questionsHtml += `<div class="question">
+                                    <p>${i + 1}. ${questions[i].question}</p>
+                                    <div class="choices">`;
+                for (var j = 0; j < questions[i].choices.length; j++) {
+                    questionsHtml += `<input type="radio" name="choice${i}" value="${j}">
+                                      <label>${questions[i].choices[j]}</label><br>`;
+                }
+                questionsHtml += `</div></div>`;
+            }
+            document.getElementById("questionsContainer").innerHTML = questionsHtml;
+        }
+
+        function calculateScore() {
+            var score = 0;
+            for (var i = 0; i < questions.length; i++) {
+                var selectedChoice = document.querySelector(`input[name="choice${i}"]:checked`);
+                if (selectedChoice && parseInt(selectedChoice.value) === questions[i].correctAnswer) {
+                    score++;
+                }
+            }
+            return score;
+        }
+
+        document.getElementById("quizForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            var score = calculateScore();
+            document.getElementById("scoreContainer").innerHTML = `Your score: ${score} out of ${questions.length}`;
+
+            // Add a hidden input field to the form to submit the score
+            var hiddenInput = document.createElement("input");
+            hiddenInput.setAttribute("type", "hidden");
+            hiddenInput.setAttribute("name", "score");
+            hiddenInput.setAttribute("value", score);
+            document.getElementById("quizForm").appendChild(hiddenInput);
+
+            // Submit the form with the score included
+            document.getElementById("quizForm").submit();
+        });
+
+        // Load questions when the page loads
+        window.onload = loadQuestions;
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethical Hacking Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='quiz_styles.css') }}">
+</head>
+<body>
+    <div id="quiz">
+        <h1>Cybersecurity Quiz</h1>
+        <form id="quizForm" action="/submit_quiz" method="post">
+            <input type="hidden" name="quiz_id" value="2"> 
+            <div id="questionsContainer"></div>
+            <button type="submit">Submit</button>
+            <div id="scoreContainer" class="score"></div>
+        </form>
+    </div>
+
+    <script>
+        var questions = [
+            {
+                question: "What is the goal of ethical hacking?",
+                choices: ["To cause harm to computer systems", "To identify and mitigate security vulnerabilities", "To gain unauthorized access to networks"],
+                correctAnswer: 1
+            },
+            {
+                question: "What is the role of ethical hackers?",
+                choices: ["To exploit systems for personal gain", "To simulate real-world cyber attacks and identify vulnerabilities", "To create secure computer networks"],
+                correctAnswer: 1
+            },
+            {
+                question: "Which phase of the ethical hacking process involves gathering information about the target systems and networks?",
+                choices: ["Scanning", "Enumeration", "Reconnaissance"],
+                correctAnswer: 2
+            },
+            {
+                question: "What is the benefit of ethical hacking for organizations?",
+                choices: ["Increased risk of cyber attacks", "Regulatory non-compliance", "Proactive identification and mitigation of vulnerabilities"],
+                correctAnswer: 2
+            }
+        ];
+
+        function loadQuestions() {
+            var questionsHtml = "";
+            for (var i = 0; i < questions.length; i++) {
+                questionsHtml += `<div class="question">
+                                    <p>${i + 1}. ${questions[i].question}</p>
+                                    <div class="choices">`;
+                for (var j = 0; j < questions[i].choices.length; j++) {
+                    questionsHtml += `<input type="radio" name="choice${i}" value="${j}">
+                                      <label>${questions[i].choices[j]}</label><br>`;
+                }
+                questionsHtml += `</div></div>`;
+            }
+            document.getElementById("questionsContainer").innerHTML = questionsHtml;
+        }
+
+        function calculateScore() {
+            var score = 0;
+            for (var i = 0; i < questions.length; i++) {
+                var selectedChoice = document.querySelector(`input[name="choice${i}"]:checked`);
+                if (selectedChoice && parseInt(selectedChoice.value) === questions[i].correctAnswer) {
+                    score++;
+                }
+            }
+            return score;
+        }
+
+        document.getElementById("quizForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            var score = calculateScore();
+            document.getElementById("scoreContainer").innerHTML = `Your score: ${score} out of ${questions.length}`;
+
+            // Add a hidden input field to the form to submit the score
+            var hiddenInput = document.createElement("input");
+            hiddenInput.setAttribute("type", "hidden");
+            hiddenInput.setAttribute("name", "score");
+            hiddenInput.setAttribute("value", score);
+            document.getElementById("quizForm").appendChild(hiddenInput);
+
+            // Submit the form with the score included
+            document.getElementById("quizForm").submit();
+        });
+
+        // Load questions when the page loads
+        window.onload = loadQuestions;
+    </script>
+</body>
+</html>

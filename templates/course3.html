@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering Cybersecurity: A Comprehensive Guide</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='course_styles.css') }}">
+</head>
+<body>
+    <h1>Mastering Cybersecurity: A Comprehensive Guide</h1>
+    <div class="video-section">
+        <video controls width="100%" height="auto">
+            <source src="{{ url_for('static', filename='course_3.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="section">
+        <h2>Building a Strong Foundation</h2>
+        <p>Cybersecurity Policy: A well-defined policy outlines information security protocols for password management, data access, acceptable technology use, and incident response. Regularly review and update this policy to stay aligned with evolving threats.</p>
+        <p>Software Updates: Outdated software harbors vulnerabilities. Enable automatic updates to ensure timely patching of security holes and minimize the attack surface.</p>
+        <p>Anti-virus and Anti-malware: These programs shield devices from malicious software that can steal data, damage systems, or disrupt operations. Use reputable solutions and configure them for regular scans.</p>
+    </div>
+
+    <div class="section">
+        <h2>User Awareness and Education</h2>
+        <p>Password Management: Strong, unique passwords are the first line of defense. Use a combination of uppercase and lowercase letters, numbers, and symbols. Consider a password manager to generate and store complex passwords securely.</p>
+        <p>Multi-Factor Authentication (MFA): MFA adds an extra layer of security by requiring a second verification factor, like a code from your phone or fingerprint scan, in addition to a password.</p>
+        <p>Phishing Awareness: Phishing emails attempt to trick recipients into revealing personal information or clicking on malicious links. Train yourself (and others) to identify suspicious emails and avoid clicking on unknown links or attachments.</p>
+    </div>
+
+    <div class="section">
+        <h2>Deep Dives into Best Practices</h2>
+        <div class="sub-section">
+            <h3>Advanced Password Management</h3>
+            <p>Explore password managers, their functionalities, and security considerations (cloud-based vs. local).</p>
+            <p>Discuss password strength meters and the importance of going beyond basic length requirements. Introduce concepts like entropy and using diceware for generating strong passwords.</p>
+            <p>Integrate interactive quizzes to test users' understanding of password strength and best practices.</p>
+        </div>
+        <!-- Repeat similar structure for other topics -->
+    </div>
+
+    <div class="section">
+        <h2>Network Security Fundamentals</h2>
+        <p>Firewall Types: Delve deeper into different firewall types (packet filtering, stateful inspection) and their functionalities. Discuss next-generation firewalls with advanced capabilities like intrusion detection and prevention.</p>
+        <p>Network Segmentation: Explain the concept of network segmentation and its role in limiting the impact of a security breach. Discuss best practices for segmenting networks based on security needs.</p>
+        <p>Vulnerability Scanning and Penetration Testing: Introduce vulnerability scanning and penetration testing as methods for identifying and exploiting weaknesses in networks. Explain how these techniques help organizations improve their security posture.</p>
+    </div>
+
+    <div class="section">
+        <h2>Encryption Technologies</h2>
+        <p>Symmetric vs. Asymmetric Encryption: Explain the difference between symmetric and asymmetric encryption and their use cases. Introduce concepts like public key infrastructure (PKI) for secure key management.</p>
+        <p>Data Encryption Standards: Discuss common data encryption standards like AES and RSA, highlighting their strengths and limitations.</p>
+        <p>Full Disk Encryption: Explain the benefits and potential drawbacks of using full disk encryption on devices to protect data at rest.</p>
+    </div>
+
+    <div class="section">
+        <h2>Advanced Topics in Cybersecurity</h2>
+        <p>Social Engineering Techniques: Explore social engineering tactics like pretexting, baiting, and quid pro quo. Provide red flags to identify these attempts.</p>
+        <p>Secure Coding Practices: Explain common coding vulnerabilities like buffer overflows, SQL injection, and cross-site scripting (XSS). Highlight the importance of secure coding practices to prevent these vulnerabilities.</p>
+        <p>Introduce static and dynamic code analysis tools that developers can use to identify potential vulnerabilities in their code before deployment.</p>
+        <a href="{{ url_for('quiz3') }}" class="enroll-btn">Take Quiz</a>
+
+    </div>
+
+</body>
+</html>

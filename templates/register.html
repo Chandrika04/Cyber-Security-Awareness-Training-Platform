@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Cyber Security Training Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        <div class="register">
+            <form action="{{ url_for('register') }}" method="POST" onsubmit="return validateForm()">
+                <input type="text" name="username" placeholder="Username" required>
+                <!-- Password input field with eye icon toggle -->
+                <div class="password-container">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <!-- Confirm Password input field with eye icon toggle -->
+                <div class="password-container">
+                    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                </div>
+                <input type="email" name="email" placeholder="Email" required>
+                <button type="submit">Register</button>
+            </form>
+            
+        </div>
+    </div>
+
+    <script>
+            function validateForm() {
+            var password = document.getElementById("password").value;
+            var confirm_password = document.getElementById("confirm_password").value;
+            var regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
+
+            if (!regex.test(password)) {
+                alert("Password must contain at least 8 characters, including 1 uppercase letter, 1 number, and 1 special character!");
+                return false;
+            }
+
+            if (password !== confirm_password) {
+                alert("Passwords do not match!");
+                return false;
+            }
+
+            return true;
+        }
+        
+        document.getElementById("password").addEventListener("keydown", function(event) {
+            if (event.key === "Enter" || event.keyCode === 13) {
+                var password = document.getElementById("password").value;
+                var regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
+
+                if (!regex.test(password)) {
+                    alert("Password must contain at least 8 characters, including 1 uppercase letter, 1 number, and 1 special character!");
+                }
+            }
+        });
+    </script>
+</body>
+</html>

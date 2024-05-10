@@ -1,0 +1,46 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #3d5af1; /* Blue background */
+    color: #fff; /* White text */
+}
+
+.certificate {
+    border: 2px solid #f3d250; /* Golden border */
+    border-radius: 15px;
+    padding: 30px;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #102e4a; /* Dark blue background */
+    position: relative; /* Setting certificate to relative for absolute positioning */
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 0;
+}
+
+p {
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+strong {
+    color: #f3d250; /* Golden text */
+}
+
+ul {
+    text-align: left;
+    margin-left: 20px;
+}
+
+li {
+    margin-bottom: 5px;
+}
